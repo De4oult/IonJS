@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IonJS</title>
+</head>
+<body>
+    <div id="ion" />
+    <script src="../ion.vdom.js"></script>
+    <script>
+        const node = Node(
+            'div',
+            {
+                class: 'container'
+            },
+            [
+                Node(
+                    'style',
+                    {
+
+                    },
+                    'body { background-color: #252525; } \n.title { color: #F9F9F9; } \n.text { color: #F5F5F5; }'
+                ),
+                Node(
+                    'h1',
+                    {
+                        class: 'title'
+                    },
+                    'IonJS - best framework'
+                ),
+                Node(
+                    'p',
+                    {   
+                        id : 'paragraph',
+                        class: 'text'
+                    },
+                    'Hallo, Welt! - IonJS'
+                )
+            ]
+        );
+
+        mount(node, document.getElementById('ion'))
+    </script>
+</body>
+</html>

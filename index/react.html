@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IonJS </title>
+</head>
+<body>
+    <div id="ion" />
+    <form name="ion">
+        <input name="ionin" type="text" />
+    </form>
+    <script src="../ion.react.js"></script>
+    <script src="../ion.vdom.js"></script>
+    <script>
+        const state = react({
+            text: ''
+        });
+
+        watchEffect(() => {
+            let form = document.forms.ion;
+            state.text = form.elements.ionin.value;        
+            
+            let node = Node(
+                'h1',
+                {},
+                state.text
+            );
+            mount(node, document.getElementById('ion'))        
+        });        
+    </script>
+</body>
+</html>
